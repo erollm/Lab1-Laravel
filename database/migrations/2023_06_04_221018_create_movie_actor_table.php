@@ -14,11 +14,9 @@ class CreateMovieActorTable extends Migration
     public function up()
     {
         Schema::create('movie_actor', function (Blueprint $table) {
-            $table->integer('movie_id');
-            $table->integer('actor_id');
+            $table->foreignId('movie_id')->constrained('movies');
+            $table->foreignId('actor_id')->constrained('actors');
 
-            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
-            $table->foreign('actor_id')->references('id')->on('actors')->onDelete('cascade');
         });
     }
 
