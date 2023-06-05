@@ -20,7 +20,7 @@ class movie extends Model
     // $table->string('website_name');
     // $table->string('website_url');
 
-    protected $fillable = ['title', 'backdoor_path', 'poster_path', 'length', 'date', 'description', 'trailer', 'website_name', 'website_url'];
+    protected $fillable = ['title','trending', 'backdoor_path', 'poster_path', 'length', 'date', 'description', 'trailer', 'website_name', 'website_url'];
 
     use HasFactory;
 }

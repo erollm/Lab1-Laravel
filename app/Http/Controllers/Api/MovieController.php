@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class MovieController extends Controller
 {
     public function index(){
-        return response()->json('Hello');
+        return MovieResource::collection(Movie::all());
     }
 
     public function show(Movie $movie){
@@ -21,6 +21,10 @@ class MovieController extends Controller
     public function store(StoreMovie $request){
         Movie::create($request->validated());
         return response()->json('Movie Created!');
+    }
+
+    public function showTrending(){
+        return response()->json('ss');
 
     }
 

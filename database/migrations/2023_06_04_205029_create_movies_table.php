@@ -16,6 +16,7 @@ class CreateMoviesTable extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
+            $table->enum('trending', [0, 1]);
             $table->string('backdoor_path');
             $table->string('poster_path');
             $table->time('length');
