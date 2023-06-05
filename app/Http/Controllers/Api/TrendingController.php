@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 class TrendingController extends Controller
 {
     public function __invoke(){
-        return Movie::where('trending', 1)->get();
+        $response = Movie::where('trending', "1")->get();
+        $response->header('Access-Control-Allow-Origin', '*');
+        $response->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        $response->header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    
+        return response()->json($response);
     }
 }
