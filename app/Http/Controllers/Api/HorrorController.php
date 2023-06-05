@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\genre;
 use Illuminate\Http\Request;
 
-class ActionController extends Controller
+class HorrorController extends Controller
 {
     public function __invoke(){
         $genre = genre::where('genre', 'Horror')->first();
