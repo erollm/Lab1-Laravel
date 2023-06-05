@@ -25,6 +25,7 @@ class CreateMoviesTable extends Migration
             $table->string('trailer');
             $table->string('thumbnail')->nullable();
             $table->string('website_name');
+            $table->string('video_location');
             $table->string('website_url');
             $table->timestamps();
         });
