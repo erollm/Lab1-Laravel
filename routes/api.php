@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\GetMovieByGenre;
+use App\Http\Controllers\Api\ActionController;
 use App\Http\Controllers\Api\MovieController;
 use App\Http\Controllers\Api\TrendingController;
 use Illuminate\Http\Request;
@@ -12,5 +12,5 @@ Route::group(['prefix' => 'v1'], function(){
     
 });
 
-Route::get('movies/trending', TrendingController::class);
-Route::get('movies/genre', GetMovieByGenre::class);
+Route::get('/movies/trending', TrendingController::class);
+Route::get('/movies/Action', ActionController::class);
