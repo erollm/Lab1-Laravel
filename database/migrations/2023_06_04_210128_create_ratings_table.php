@@ -15,10 +15,13 @@ class CreateRatingsTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->integer('movie_id');
+            $table->foreignId('movie_id')->constrained('movies');
+            $table->foreignId('user_id')->constrained('users');
             $table->integer('rating');
             $table->string('comment');
             $table->timestamps();
+
+
         });
     }
 

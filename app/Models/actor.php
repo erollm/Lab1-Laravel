@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class actor extends Model
 {
+    protected $table = 'actors';
     use HasFactory;
 }
