@@ -17,14 +17,15 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->enum('trending', [0, 1]);
-            $table->string('backdoor_path');
+            $table->string('backdrop_path');
             $table->string('poster_path');
             $table->time('length');
             $table->date('date');
-            $table->string('description');
+            $table->text('description');
             $table->string('trailer');
             $table->string('thumbnail')->nullable();
             $table->string('website_name');
+            $table->string('video_location')->nullable();
             $table->string('website_url');
             $table->timestamps();
         });

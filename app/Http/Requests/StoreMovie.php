@@ -25,7 +25,7 @@ class StoreMovie extends FormRequest
     {
         return [
             'title' => ['required', 'unique:movies,title'],
-            'backdoor_path' => ['required'],
+            'backdrop_path' => ['required'],
             'trending' => ['required'],
             'poster_path' => ['required'],
             'length' => ['required'],
