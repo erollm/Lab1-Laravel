@@ -22,7 +22,7 @@ class CreateMoviesTable extends Migration
             $table->date('date');
             $table->string('description');
             $table->string('trailer');
-            $table->string('thumbnail');
+            $table->string('thumbnail')->nullable();
             $table->string('website_name');
             $table->string('website_url');
             $table->timestamps();
