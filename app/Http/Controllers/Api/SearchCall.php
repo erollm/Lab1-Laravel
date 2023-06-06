@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class SearchCall extends Controller
 {
     public function __invoke($query){
-        $response = movie::where('title', $query)->get();
+        $response = movie::where('title', 'like', '%' . $query . '%')->get();
 
         if($response->isEmpty()){
             abort(404, 'No movies');
