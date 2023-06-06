@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\HorrorController;
 use App\Http\Controllers\Api\MovieController;
 use App\Http\Controllers\Api\RomanceController;
 use App\Http\Controllers\Api\TrendingController;
+use App\Http\Controllers\Api\SearchCall;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +24,4 @@ Route::get('/movies/Comedy', ComedyController::class);
 Route::get('/movies/Horror', HorrorController::class);
 Route::get('/movies/Romance', RomanceController::class);
 Route::get('/movies/Documentaries', DocumentariesController::class);
+Route::get('/search/{query}', SearchCall::class);
