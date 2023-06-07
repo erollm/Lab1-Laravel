@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ActionController;
+use App\Http\Controllers\Api\AdminStats;
 use App\Http\Controllers\Api\ComedyController;
 use App\Http\Controllers\Api\DocumentariesController;
 use App\Http\Controllers\Api\HorrorController;
@@ -25,3 +26,4 @@ Route::get('/movies/Horror', HorrorController::class);
 Route::get('/movies/Romance', RomanceController::class);
 Route::get('/movies/Documentaries', DocumentariesController::class);
 Route::get('/search/{query}', SearchCall::class);
+Route::get('/AdminStats', AdminStats::class);
