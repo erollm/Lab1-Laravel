@@ -9,16 +9,14 @@ use App\Http\Controllers\Api\MovieController;
 use App\Http\Controllers\Api\RomanceController;
 use App\Http\Controllers\Api\TrendingController;
 use App\Http\Controllers\Api\SearchCall;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(['prefix' => 'v1'], function(){
-    Route::apiResource('movies', MovieController::class);
-    
-});
 
+Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
+    return $request->user();
+});
 Route::get('/movies/trending', TrendingController::class);
 Route::get('/movies/Action', ActionController::class);
 Route::get('/movies/Comedy', ComedyController::class);
