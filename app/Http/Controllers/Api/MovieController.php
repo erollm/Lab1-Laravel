@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMovie;
 use App\Http\Resources\api\MovieResource;
 use App\Models\Movie;
+use App\Models\rating;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -14,9 +15,16 @@ class MovieController extends Controller
         return MovieResource::collection(Movie::all());
     }
 
-    public function show(Movie $movie){
-        return new MovieResource($movie);
-    }
+   public function show(Movie $movie) {
+    $averageRating = Rating::selectRaw('AVG(rating) as average_rating')
+        ->join('movies', 'ratings.movie_id', '=', 'movies.id')
+        ->where('ratings.movie_id', $movie->id)
+        ->groupBy('ratings.movie_id')
+        ->first();
+
+    return new MovieResource(['data' => $movie, 'rating' => $averageRating]);
+}
+
 
     public function store(StoreMovie $request){
         Movie::create($request->validated());

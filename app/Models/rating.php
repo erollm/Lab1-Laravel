@@ -19,6 +19,8 @@ class rating extends Model{
         public function user(){
             return $this->belongsTo(user::class, 'user_id');
         }
+
+        protected $fillable = ['movie_id', 'user_id', 'rating', 'comment'];
     
     use HasFactory;
 }
