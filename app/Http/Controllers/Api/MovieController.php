@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMovie;
 use App\Http\Resources\api\MovieResource;
+use App\Models\genre;
 use App\Models\Movie;
 use App\Models\rating;
 use Illuminate\Http\Request;
@@ -22,8 +23,15 @@ class MovieController extends Controller
         ->groupBy('ratings.movie_id')
         ->first();
 
-    return new MovieResource(['data' => $movie, 'rating' => $averageRating]);
-}
+        $genres = Genre::selectRaw('genres.genre')
+        ->join('movie_genre', 'genres.id', '=', 'movie_genre.genre_id')
+        ->join('movies', 'movie_genre.movie_id', '=', 'movies.id')
+        ->where('movies.id', $movie->id)
+        ->groupBy('genres.genre')
+        ->get();
+    
+    return new MovieResource(['data' => $movie, 'rating' => $averageRating, 'genres' => $genres]);
+    }
 
 
     public function store(StoreMovie $request){
