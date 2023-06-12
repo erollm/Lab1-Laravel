@@ -17,8 +17,10 @@ class CreateWatchlistTable extends Migration
             $table->id();
             $table->foreignId('movie_id')->constrained('movies');
             $table->foreignId('user_id')->constrained('users');
-            $table->enum('watched_status', [0, 1]);
-            $table->date('watched_date')->nullable();
+            $table->boolean('watched_status')->default(false);
+            $table->boolean('bookmarked')->default(false);
+            $table->boolean('watch_later')->default(false);
+            $table->date('watched_date')->nullable(); 
             $table->timestamps();
 
         });

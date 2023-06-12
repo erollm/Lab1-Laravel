@@ -11,6 +11,8 @@ use App\Http\Controllers\Api\MovieController;
 use App\Http\Controllers\Api\RomanceController;
 use App\Http\Controllers\Api\TrendingController;
 use App\Http\Controllers\Api\SearchCall;
+use App\Http\Controllers\Api\WatchlistController;
+use App\Models\Watchlist;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,7 @@ Route::group(['prefix' => 'v1'], function(){
     Route::apiResource('movies', MovieController::class);
 });
 
+Route::post('/watchlist', WatchlistController::class);
 Route::get('/movies/trending', TrendingController::class);
 Route::get('/movies/Action', ActionController::class);
 Route::get('/movies/Comedy', ComedyController::class);
