@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\MovieController;
 use App\Http\Controllers\Api\RomanceController;
 use App\Http\Controllers\Api\TrendingController;
 use App\Http\Controllers\Api\SearchCall;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\WatchlistController;
 use App\Models\Watchlist;
 
@@ -31,6 +32,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v1'], function(){
     Route::apiResource('movies', MovieController::class);
+    Route::apiResource('users', UserController::class);
 });
 
 Route::post('/watchlist', WatchlistController::class);
