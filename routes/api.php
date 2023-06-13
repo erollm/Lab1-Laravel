@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\TrendingController;
 use App\Http\Controllers\Api\SearchCall;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\WatchlistController;
+use App\Http\Controllers\Api\WatchlistRowsCountController;
 use App\Http\Controllers\Api\WatchlistUpdateController;
 use App\Models\Watchlist;
 
@@ -37,6 +38,7 @@ Route::group(['prefix' => 'v1'], function(){
 });
 
 Route::post('/watchlist', WatchlistController::class);
+Route::get('/watchlist/{movie_id}/{user_id}', WatchlistRowsCountController::class);
 Route::put('/watchlist/put', WatchlistUpdateController::class);
 Route::get('/movies/trending', TrendingController::class);
 Route::get('/movies/Action', ActionController::class);
