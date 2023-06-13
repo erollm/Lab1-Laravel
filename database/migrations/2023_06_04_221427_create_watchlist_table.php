@@ -23,6 +23,9 @@ class CreateWatchlistTable extends Migration
             $table->date('watched_date')->nullable(); 
             $table->timestamps();
 
+            $table->unique(['movie_id', 'user_id']);
+
+
         });
     }
 

@@ -26,9 +26,9 @@ class StoreWatchlist extends FormRequest
         return [
             'user_id' =>['required'],
             'movie_id'=>['required'],
-            'watched_status' => ['required'],
-            'bookmarked' => ['required'],
-            'watch_later' => ['required']
+            'watched_status' => ['boolean'],
+            'bookmarked' => ['boolean'],
+            'watch_later' => ['boolean']
         ];
     }
 }
