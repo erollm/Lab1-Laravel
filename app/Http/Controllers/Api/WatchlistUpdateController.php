@@ -17,7 +17,6 @@ class WatchlistUpdateController extends Controller
         $bookmarkedInput = $request->input('bookmarked');
         $watchLaterInput = $request->input('watch_later');
 
-        // Retrieve the existing watchlist item from the database
         $watchlistItem = Watchlist::where('movie_id', $movieId)
             ->where('user_id', $userId)
             ->first();
@@ -26,7 +25,6 @@ class WatchlistUpdateController extends Controller
             return response()->json(['message' => 'Watchlist item not found'], 404);
         }
 
-        // Update only the specified columns if they are included in the request
         if ($request->has('watched_status')) {
             $watchlistItem->watched_status = $watchedStatusInput;
         }
@@ -39,9 +37,8 @@ class WatchlistUpdateController extends Controller
             $watchlistItem->watch_later = $watchLaterInput;
         }
 
-        // Save the updated watchlist item
         $watchlistItem->save();
 
-        return response()->json($watchlistItem);
+        return response()->json("movie updated");
     }
 }
