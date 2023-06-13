@@ -29,8 +29,11 @@ class MovieController extends Controller
         ->where('movies.id', $movie->id)
         ->groupBy('genres.genre')
         ->get();
+
+        $csrfToken = csrf_token();
+
     
-    return new MovieResource(['data' => $movie, 'rating' => $averageRating, 'genres' => $genres]);
+    return new MovieResource(['data' => $movie, 'rating' => $averageRating, 'genres' => $genres, 'csrfToken' => $csrfToken ]);
     }
 
 
