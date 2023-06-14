@@ -31,10 +31,10 @@ class StoreMovie extends FormRequest
             'length' => ['required'],
             'date' => ['required'],
             'description' => ['required'],
-            'trailer' => ['required'],
-            'thumbnail' => ['required'],
-            'website_name' => ['required'],
-            'website_url' => ['required']
+            'trailer' => ['nullable'],
+            'thumbnail' => ['nullable'],
+            'website_name' => ['nullable'],
+            'website_url' => ['nullable']
         ];
     }
 }
