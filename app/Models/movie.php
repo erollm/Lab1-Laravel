@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\rating;
 use App\Models\User;
 use App\Models\genre;
+use App\Models\Watchlist;
 
 
 class movie extends Model
@@ -26,6 +27,11 @@ class movie extends Model
     }
     public function genres(){
         return $this->belongsToMany(genre::class, 'movie_genre', 'movie_id', 'genre_id');
+    }
+
+
+    public function watchlist(){
+        return $this->hasMany(Watchlist::class, 'watchlist' , 'movie_id');
     }
 
     

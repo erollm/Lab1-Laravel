@@ -12,6 +12,6 @@ class WatchlistRowsCountController extends Controller
 
         $rows = Watchlist::where('movie_id', $movie_id)->where('user_id', $user_id)->first();
 
-        return response()->json($rows ? $rows : 'Not Found');
+        return response()->json($rows);
     }
 }

@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\movie;
+use App\Models\User;
+
 
 class Watchlist extends Model
 {
@@ -14,10 +17,10 @@ class Watchlist extends Model
 
 
     public function users(){
-        return $this->belongsToMany(User::class, 'watchlist_user' , 'user_id', 'watchlist_id');
+        return $this->belongsToMany(User::class, 'users' , 'user_id');
     }
     public function movies(){
-        return $this->belongsToMany(movie::class, 'watchlist_movies' , 'movie_id', 'watchlist_id');
+        return $this->belongsToMany(movie::class);
     }
 
 
