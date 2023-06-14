@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\rating;
+use App\Models\movie;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,9 +19,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'username',
         'email',
         'password',
+        'avatar',
+        'role',
     ];
 
     /**
@@ -41,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function ratings(){
+        return $this->hasMany(rating::class, 'user_id');
+    }
+
+    public function movies(){
+        return $this->belongsToMany(movie::class, 'watchlist', 'user_id', 'movie_id');
+    }
 }

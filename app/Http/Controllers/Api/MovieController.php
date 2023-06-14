@@ -32,7 +32,7 @@ class MovieController extends Controller
 
         $csrfToken = csrf_token();
 
-
+    
     return new MovieResource(['data' => $movie, 'rating' => $averageRating, 'genres' => $genres, 'csrfToken' => $csrfToken ]);
     }
 
@@ -45,6 +45,11 @@ class MovieController extends Controller
     public function showTrending(){
         return response()->json('ss');
 
+    }
+
+    public function destroy(Movie $movie){
+        $movie->delete();
+        return response()->json("Movie Deleted!");
     }
 
 

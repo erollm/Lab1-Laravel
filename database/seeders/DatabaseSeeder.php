@@ -14,5 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory()->create([
+            'firstname' => 'Eroll',
+            'lastname' => 'Muqkurtaj',
+            'username' => 'admin',
+            'email' => 'admin@cineview.com',
+            'role' => 'admin'
+        ]);
     }
 }
