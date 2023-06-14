@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\WatchlistController;
 use App\Http\Controllers\Api\WatchlistRowsCountController;
 use App\Http\Controllers\Api\WatchlistUpdateController;
 use App\Models\Watchlist;
+use App\Http\Controllers\Api\WatchedMovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,4 @@ Route::get('/movies/Romance', RomanceController::class);
 Route::get('/movies/Documentaries', DocumentariesController::class);
 Route::get('/search/{query}', SearchCall::class);
 Route::get('/AdminStats', AdminStats::class);
+Route::get('/watched_status/{user_id}',WatchedMovieController::class);
