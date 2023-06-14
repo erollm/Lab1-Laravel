@@ -29,12 +29,18 @@ class UserController extends Controller
         return response()->json("User Created");
     }
 
-    public function update(StoreUserRequest $request, User $user){
-        $user->update($request->validated());
+    public function update(StoreUserRequest $request, User $user)
+    {
+        $user->update($request->only('firstname','lastname','username','email'));
         return response()->json("User Updated");
     }
 
     public function show(User $user){
         return new UserResource($user);
+    }
+
+    public function destroy(User $user){
+        $user->delete();
+        return response()->json("User Deleted!");
     }
 }
