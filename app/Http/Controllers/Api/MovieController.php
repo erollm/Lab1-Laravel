@@ -38,7 +38,20 @@ class MovieController extends Controller
 
 
     public function store(StoreMovie $request){
-        Movie::create($request->validated());
+        $request->validated();
+        Movie::create([
+            'title' => $request->title,
+            'backdrop_path' => $request->backdrop_path,
+            'tending' => $request->trending,
+            'poster_path' => $request->poster_path,
+            'length' => $request->length,
+            'date' => $request->date,
+            'description' => $request->description,
+            'trailer' => "",
+            'thumbnail' => "",
+            'website_url' => "",
+            'website_name' => ""
+        ]);
         return response()->json('Movie Created!');
     }
 
